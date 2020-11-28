@@ -1,4 +1,7 @@
-** backend Приложения КВАРК ** Серверная часть приложения. Демо [доступно по ссылке ](https://voiceapiserver.na4u.ru/) REST API
+**backend Приложения КВАРК** Серверная часть приложения. Демо [доступно по ссылке ](https://voiceapiserver.na4u.ru/) REST API
+
+> Демо [прилождения ввиде HTML ](http://voiceapiserver.na4u.ru/static/demoApp/index.html) **Авторизация отключена намеренно!**
+
 Приложение написано на node.js с использованием:
 
 > express
@@ -33,8 +36,10 @@
 
    $ npm run start:dev
 
+---
+
 ## Набор Эндпоинтов
 
 Представлен ввиде коллекции для [Postman](https://www.postman.com/downloads/)
 
-> Импортировать (**Rosatom Server.postman_collection.json**) в Postman. [продакшен сервер](https://voiceapiserver.na4u.ru/)
+Импортировать (**Rosatom Server.postman_collection.json**) в Postman (коллекция настроена на localhost ). [продакшен сервер](https://voiceapiserver.na4u.ru/) **https://voiceapiserver.na4u.ru/**
