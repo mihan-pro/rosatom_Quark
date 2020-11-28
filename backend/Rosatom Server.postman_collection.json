@@ -1,0 +1,343 @@
+{
+	"info": {
+		"_postman_id": "a4cbaf42-9599-4b24-bdfb-479fa4afb5e1",
+		"name": "Rosatom Server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Авторизация",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nickname\": \"test1\",\n    \"password\": \"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Бэкап задачи",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"task_id\": \"9d8f9567-c129-4130-88b8-19e2da275c58\",\n    \"time\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/backupTask",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"backupTask"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Чат между пользователями",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/user/messages?from_user_id=f27221a5-3311-4593-bf6c-c1ddd22ab004&to_user_id=4810a9b8-dc03-4fbb-b561-3510ae17bcad&time=2020-11-26 15:42:46",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"user",
+						"messages"
+					],
+					"query": [
+						{
+							"key": "from_user_id",
+							"value": "f27221a5-3311-4593-bf6c-c1ddd22ab004"
+						},
+						{
+							"key": "to_user_id",
+							"value": "4810a9b8-dc03-4fbb-b561-3510ae17bcad"
+						},
+						{
+							"key": "time",
+							"value": "2020-11-26 15:42:46"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Список задач",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Уведомления",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": \"f27221a5-3311-4593-bf6c-c1ddd22ab004\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/notice?user_id=8d025778-f0b3-4bbd-a89a-e1f2b2b56020",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"notice"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "8d025778-f0b3-4bbd-a89a-e1f2b2b56020"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Список пользователей",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Список подразделений Росатома",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/departmentsList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"departmentsList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Сотрудники предприятия",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/departmentDetails?department_id=ffb93e22-98b1-49ac-92ef-0b9967fda776",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"departmentDetails"
+					],
+					"query": [
+						{
+							"key": "department_id",
+							"value": "ffb93e22-98b1-49ac-92ef-0b9967fda776"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Переписка по задаче",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"task_id\": \"f27221a5-3311-4593-bf6c-c1ddd22ab004\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/task/messages?task_id=f27221a5-3311-4593-bf6c-c1ddd22ab004",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"task",
+						"messages"
+					],
+					"query": [
+						{
+							"key": "task_id",
+							"value": "f27221a5-3311-4593-bf6c-c1ddd22ab004"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Пользовательские сообщения",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/user/messages?from_user_id=f27221a5-3311-4593-bf6c-c1ddd22ab004&to_user_id=4810a9b8-dc03-4fbb-b561-3510ae17bcad&time=2020-11-11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"user",
+						"messages"
+					],
+					"query": [
+						{
+							"key": "from_user_id",
+							"value": "f27221a5-3311-4593-bf6c-c1ddd22ab004"
+						},
+						{
+							"key": "to_user_id",
+							"value": "4810a9b8-dc03-4fbb-b561-3510ae17bcad"
+						},
+						{
+							"key": "time",
+							"value": "2020-11-11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Добавление сособщения",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from_user_id\": \"f27221a5-3311-4593-bf6c-c1ddd22ab004\",\n    \"to_user_id\": \"4810a9b8-dc03-4fbb-b561-3510ae17bcad\",\n    \"message\": \"adasdasd\",\n    \"audio_id\": \"8d025778-f0b3-4bbd-a89a-e1f2b2b56020\",\n    \"audio_txt\": \"adasdasd\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/user/addMessage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"user",
+						"addMessage"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Rosatom-Server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "nodemon --experimental-modules ./server.js"
+  },
+  "keywords": [],
+  "author": "Dmitry <n0byk@yandex.ru>",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "joi": "^17.3.0",
+    "peer": "^0.5.3",
+    "pg": "^8.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}

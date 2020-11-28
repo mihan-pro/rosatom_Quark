@@ -1,0 +1,205 @@
+DROP TABLE IF EXISTS "attatchment";
+CREATE TABLE "public"."attatchment" (
+    "attatchment_id" uuid DEFAULT uuid_generate_v4() NOT NULL,
+    "attatchment_type" character varying(10) DEFAULT 'audio',
+    "message_id" uuid NOT NULL,
+    "url" character varying(500),
+    "translane" character varying(500),
+    "alt" character varying(500),
+    CONSTRAINT "attatchment_pkey" PRIMARY KEY ("attatchment_id")
+) WITH (oids = false);
+
+INSERT INTO "attatchment" ("attatchment_id", "attatchment_type", "message_id", "url", "translane", "alt") VALUES
+('f8f160cf-e96f-4c2a-8e37-bb7da0b81211',	'audio',	'f80cae85-d13b-4093-8c56-9bf4d19d8d0d',	NULL,	NULL,	NULL),
+('ffb2a3dc-ceec-4413-88a8-cd2dee71a930',	'audio',	'90953591-48d5-46a3-9b91-afa36218a61d',	NULL,	'aedasd',	NULL),
+('a2224206-599d-4589-9281-2bbf1a4fdb1d',	'audio',	'949e2353-2292-45db-b4b0-6039574e36d4',	NULL,	'вфывфы',	NULL),
+('5b1e4df1-db25-42a5-b3f3-253e224fb46a',	'audio',	'a686e2a7-438e-405f-a044-c14c5d7c1092',	NULL,	'вкйцуе',	NULL),
+('d4016b1a-d5e6-49e3-87c5-4f8911070bb1',	'audio',	'3b364916-ab50-4f71-9550-b5ce343bc7c2',	NULL,	'цуецукецуке',	NULL),
+('687412cb-3d98-46fe-b3b5-1f4e69edd295',	'audio',	'173002e4-f34f-4d6c-9979-604d88e8e717',	NULL,	NULL,	NULL),
+('8099784a-d104-43eb-accf-75ba1cf35a50',	'video',	'd3ab2b45-cfff-43b2-8d1c-1a7c31972172',	NULL,	'asdrwweqr',	NULL);
+
+DROP TABLE IF EXISTS "backuptask";
+CREATE TABLE "public"."backuptask" (
+    "backup_id" uuid DEFAULT uuid_generate_v4() NOT NULL,
+    "task_id" uuid NOT NULL,
+    "add_time" timestamp DEFAULT now(),
+    "time_to" timestamp
+) WITH (oids = false);
+
+INSERT INTO "backuptask" ("backup_id", "task_id", "add_time", "time_to") VALUES
+('880565e6-7639-43f3-86f8-c363b5685164',	'9d8f9567-c129-4130-88b8-19e2da275c58',	'2020-11-27 17:33:57.260847',	'2025-11-27 17:33:57.260847');
+
+DROP TABLE IF EXISTS "department";
+CREATE TABLE "public"."department" (
+    "department_id" uuid DEFAULT uuid_generate_v4() NOT NULL,
+    "department_name" character varying(500) DEFAULT 'message',
+    "department_description" character varying(500),
+    CONSTRAINT "department_pkey" PRIMARY KEY ("department_id")
+) WITH (oids = false);
+
+INSERT INTO "department" ("department_id", "department_name", "department_description") VALUES
+('72fd7fa7-4b06-449b-a659-0273f16031a0',	'2',	NULL),
+('9d7ae38a-92f0-4f74-90b8-9d3ff80490f0',	'3',	NULL),
+('c622347f-3b67-46e7-adee-45b31d492f14',	'4',	NULL),
+('bb0b206e-fd8c-4f37-abf5-7082846038f2',	'5',	NULL),
+('0a8f3885-f19b-4f3a-852a-3c7ebfb19378',	'6',	NULL),
+('33d628d1-6d0a-42e9-a2fc-b6497debce89',	'7',	NULL),
+('ffb93e22-98b1-49ac-92ef-0b9967fda776',	'Управление по Управлению',	NULL);
+
+DROP TABLE IF EXISTS "department_employer_set";
+CREATE TABLE "public"."department_employer_set" (
+    "employer_id" uuid DEFAULT uuid_generate_v4() NOT NULL,
+    "department_id" uuid NOT NULL,
+    "user_id" uuid NOT NULL,
+    CONSTRAINT "department_employer_set_pkey" PRIMARY KEY ("employer_id")
+) WITH (oids = false);
+
+INSERT INTO "department_employer_set" ("employer_id", "department_id", "user_id") VALUES
+('213a90a5-aede-46f2-9fcb-76133ba4f9da',	'ffb93e22-98b1-49ac-92ef-0b9967fda776',	'839d0f09-c8a2-466d-9ad3-843768aa2d1f'),
+('530cd68d-4b80-40ce-8835-e77f31cd448d',	'ffb93e22-98b1-49ac-92ef-0b9967fda776',	'33371eee-b20b-47e0-b4cb-a48727719065'),
+('39d04e5c-a299-40ac-ac00-2c754b376176',	'ffb93e22-98b1-49ac-92ef-0b9967fda776',	'532e2562-ae72-4440-8f1d-0472981f592d'),
+('0df73b86-d15c-4e02-bfd1-016c9f46a5b3',	'ffb93e22-98b1-49ac-92ef-0b9967fda776',	'79650483-5ef1-40d8-b18c-0ac5dd962d3c'),
+('180603b2-8b5e-4d9e-a633-a06fc355f226',	'ffb93e22-98b1-49ac-92ef-0b9967fda776',	'a4aef46a-0db8-4c23-aa77-ff713397bfde'),
+('d3b6dc4f-36ec-4a88-aa25-104d9e15b567',	'ffb93e22-98b1-49ac-92ef-0b9967fda776',	'f27221a5-3311-4593-bf6c-c1ddd22ab004'),
+('b64fb583-d2ac-491a-a776-483c4b55d13f',	'ffb93e22-98b1-49ac-92ef-0b9967fda776',	'4810a9b8-dc03-4fbb-b561-3510ae17bcad'),
+('52859e71-ecbd-42a8-9fc3-dde4d34fb744',	'ffb93e22-98b1-49ac-92ef-0b9967fda776',	'6e61235a-1778-470e-85ca-a9524c977a79'),
+('d4b92662-60c5-4bf9-baf7-60213b5fd7d8',	'ffb93e22-98b1-49ac-92ef-0b9967fda776',	'23bf0a91-5150-4457-a9e6-65a6a2206e37');
+
+DROP TABLE IF EXISTS "message";
+CREATE TABLE "public"."message" (
+    "message_id" uuid DEFAULT uuid_generate_v4() NOT NULL,
+    "user_id" uuid NOT NULL,
+    "task_id" uuid NOT NULL,
+    "message" character varying(1000),
+    "attatchment" uuid,
+    CONSTRAINT "message_pkey" PRIMARY KEY ("message_id")
+) WITH (oids = false);
+
+INSERT INTO "message" ("message_id", "user_id", "task_id", "message", "attatchment") VALUES
+('464fd1c9-9e96-491b-8b9c-a2364f0aad08',	'6e61235a-1778-470e-85ca-a9524c977a79',	'9d8f9567-c129-4130-88b8-19e2da275c58',	'12312',	'687412cb-3d98-46fe-b3b5-1f4e69edd295'),
+('90953591-48d5-46a3-9b91-afa36218a61d',	'6e61235a-1778-470e-85ca-a9524c977a79',	'9d8f9567-c129-4130-88b8-19e2da275c58',	'weda',	NULL),
+('d3ab2b45-cfff-43b2-8d1c-1a7c31972172',	'6e61235a-1778-470e-85ca-a9524c977a79',	'9d8f9567-c129-4130-88b8-19e2da275c58',	'asdfasdf',	NULL),
+('949e2353-2292-45db-b4b0-6039574e36d4',	'6e61235a-1778-470e-85ca-a9524c977a79',	'9d8f9567-c129-4130-88b8-19e2da275c58',	'dsd',	'd4016b1a-d5e6-49e3-87c5-4f8911070bb1'),
+('173002e4-f34f-4d6c-9979-604d88e8e717',	'6e61235a-1778-470e-85ca-a9524c977a79',	'9d8f9567-c129-4130-88b8-19e2da275c58',	'asfdasdf',	NULL),
+('a686e2a7-438e-405f-a044-c14c5d7c1092',	'6e61235a-1778-470e-85ca-a9524c977a79',	'9d8f9567-c129-4130-88b8-19e2da275c58',	'asdf',	NULL),
+('f80cae85-d13b-4093-8c56-9bf4d19d8d0d',	'6e61235a-1778-470e-85ca-a9524c977a79',	'9d8f9567-c129-4130-88b8-19e2da275c58',	'asdfa',	'd4016b1a-d5e6-49e3-87c5-4f8911070bb1'),
+('3b364916-ab50-4f71-9550-b5ce343bc7c2',	'79650483-5ef1-40d8-b18c-0ac5dd962d3c',	'9d8f9567-c129-4130-88b8-19e2da275c58',	'asdf',	NULL),
+('44cd0117-9528-461a-bbe9-33b44def5713',	'79650483-5ef1-40d8-b18c-0ac5dd962d3c',	'09c19c7f-60cb-41b7-a77c-b06407b29a5b',	'gasdg',	'8099784a-d104-43eb-accf-75ba1cf35a50'),
+('2de54320-166a-4be7-9a27-980a2e48b264',	'79650483-5ef1-40d8-b18c-0ac5dd962d3c',	'09c19c7f-60cb-41b7-a77c-b06407b29a5b',	'dddaseee',	NULL),
+('ac90ce49-c45c-447d-b49e-0945e5bbe722',	'79650483-5ef1-40d8-b18c-0ac5dd962d3c',	'09c19c7f-60cb-41b7-a77c-b06407b29a5b',	'asdfasdf',	'5b1e4df1-db25-42a5-b3f3-253e224fb46a'),
+('23d406cc-1d0e-4b32-b764-b041aa65d6d1',	'79650483-5ef1-40d8-b18c-0ac5dd962d3c',	'09c19c7f-60cb-41b7-a77c-b06407b29a5b',	'asdfasdf',	'f8f160cf-e96f-4c2a-8e37-bb7da0b81211'),
+('56c49322-5fcc-44ad-9753-a7875ca4ce80',	'79650483-5ef1-40d8-b18c-0ac5dd962d3c',	'153ec68d-6436-4920-90f4-7e6ee585b22c',	'vbcvb',	'd4016b1a-d5e6-49e3-87c5-4f8911070bb1'),
+('ec72e7d8-7746-4eba-be36-a0066d247d7d',	'6e61235a-1778-470e-85ca-a9524c977a79',	'153ec68d-6436-4920-90f4-7e6ee585b22c',	'12312',	'ffb2a3dc-ceec-4413-88a8-cd2dee71a930'),
+('38e07b77-7366-4cc0-846f-33a04760f97b',	'79650483-5ef1-40d8-b18c-0ac5dd962d3c',	'153ec68d-6436-4920-90f4-7e6ee585b22c',	'qwerqwer',	'8099784a-d104-43eb-accf-75ba1cf35a50'),
+('01e941e3-1321-4f83-a316-281607e2cc35',	'79650483-5ef1-40d8-b18c-0ac5dd962d3c',	'153ec68d-6436-4920-90f4-7e6ee585b22c',	'gdfgdf',	'a2224206-599d-4589-9281-2bbf1a4fdb1d'),
+('5c070cf3-b4e6-4e54-9516-cb46e5f42831',	'79650483-5ef1-40d8-b18c-0ac5dd962d3c',	'153ec68d-6436-4920-90f4-7e6ee585b22c',	'dfwerwq',	'687412cb-3d98-46fe-b3b5-1f4e69edd295');
+
+DROP TABLE IF EXISTS "notice";
+CREATE TABLE "public"."notice" (
+    "user_id" uuid NOT NULL,
+    "notice_type" character varying(50) DEFAULT 'message',
+    "notice_description" character varying(500)
+) WITH (oids = false);
+
+INSERT INTO "notice" ("user_id", "notice_type", "notice_description") VALUES
+('8d025778-f0b3-4bbd-a89a-e1f2b2b56020',	'voice_chat',	NULL),
+('8d025778-f0b3-4bbd-a89a-e1f2b2b56020',	'voice_chat',	NULL),
+('8d025778-f0b3-4bbd-a89a-e1f2b2b56020',	'video_chat',	NULL),
+('8d025778-f0b3-4bbd-a89a-e1f2b2b56020',	'video_chat',	NULL),
+('8d025778-f0b3-4bbd-a89a-e1f2b2b56020',	'task',	NULL),
+('8d025778-f0b3-4bbd-a89a-e1f2b2b56020',	'task',	NULL),
+('8d025778-f0b3-4bbd-a89a-e1f2b2b56020',	'message',	NULL),
+('8d025778-f0b3-4bbd-a89a-e1f2b2b56020',	'message',	NULL),
+('8d025778-f0b3-4bbd-a89a-e1f2b2b56020',	'message',	NULL),
+('8d025778-f0b3-4bbd-a89a-e1f2b2b56020',	'task',	NULL),
+('2dc558eb-6a41-4f1b-8d03-66180fcd7ca9',	'voice_chat',	NULL),
+('2dc558eb-6a41-4f1b-8d03-66180fcd7ca9',	'voice_chat',	NULL),
+('2dc558eb-6a41-4f1b-8d03-66180fcd7ca9',	'voice_chat',	NULL),
+('2dc558eb-6a41-4f1b-8d03-66180fcd7ca9',	'task',	NULL),
+('2dc558eb-6a41-4f1b-8d03-66180fcd7ca9',	'task',	NULL),
+('2dc558eb-6a41-4f1b-8d03-66180fcd7ca9',	'task',	NULL),
+('2dc558eb-6a41-4f1b-8d03-66180fcd7ca9',	'task',	NULL);
+
+DROP TABLE IF EXISTS "task";
+CREATE TABLE "public"."task" (
+    "task_id" uuid DEFAULT uuid_generate_v4() NOT NULL,
+    "task_title" character varying(500),
+    "task_description" character varying(500),
+    "priority" character varying(10),
+    "status" character varying(10) DEFAULT 'todo',
+    "tags" text[] DEFAULT '{Задача,Пользователь}',
+    "start_at" timestamp DEFAULT timezone('UTC')),
+    "end_at" timestamp DEFAULT '(timezone(''UTC''::text, now()) + ''5 days'')',
+    "rdy_at" integer DEFAULT '0',
+    "assign_at" jsonb DEFAULT '{}',
+    "attatchment" uuid,
+    "resolution" jsonb DEFAULT '{"message": "Согласовано.", "user_id": "4810a9b8-dc03-4fbb-b561-3510ae17bcad"}',
+    "contributor" jsonb DEFAULT '{}',
+    "description" text
+) WITH (oids = false);
+
+INSERT INTO "task" ("task_id", "task_title", "task_description", "priority", "status", "tags", "start_at", "end_at", "rdy_at", "assign_at", "attatchment", "resolution", "contributor", "description") VALUES
+('68cd5d4f-c88b-41ca-bad9-a19508445138',	'Тестовые испытания',	'',	'low',	'todo',	'{Задача,Пользователь}',	'2020-11-22 14:37:33.675038',	'2020-11-27 14:37:33.675038',	50,	'{"user_id": "532e2562-ae72-4440-8f1d-0472981f592d"}',	NULL,	'{"message": "Согласовано.", "user_id": "4810a9b8-dc03-4fbb-b561-3510ae17bcad"}',	'[{"role": "Контролер", "user_id": "054cc9ce-cca0-4080-97ee-19fd5eb61b76"}, {"role": "Исполнитель", "user_id": "839d0f09-c8a2-466d-9ad3-843768aa2d1f"}]',	'Произвести пуско-наладочные испытания оборудования конвеерной ленты'),
+('1ae6ec7f-ecaf-4e34-afb4-eece95c05291',	'Согласование закупок',	'',	'high',	'done',	'{Задача,Пользователь}',	'2020-11-22 14:37:33.670656',	'2020-11-27 14:37:33.670656',	100,	'{"user_id": "33371eee-b20b-47e0-b4cb-a48727719065"}',	NULL,	'{"message": "Согласовано.", "user_id": "4810a9b8-dc03-4fbb-b561-3510ae17bcad"}',	'[{"role": "Контролер", "user_id": "6e61235a-1778-470e-85ca-a9524c977a79"}, {"role": "Наблюдатель", "user_id": "33371eee-b20b-47e0-b4cb-a48727719065"}, {"role": "Исполнитель", "user_id": "839d0f09-c8a2-466d-9ad3-843768aa2d1f"}]',	'Согласование закупок товаров и услуг за 1 квартал 2021 года'),
+('9d8f9567-c129-4130-88b8-19e2da275c58',	'Проведение испытаний',	'',	'low',	'todo',	'{Задача,Пользователь}',	'2020-11-22 14:37:33.673512',	'2020-11-27 14:37:33.673512',	10,	'{"user_id": "f27221a5-3311-4593-bf6c-c1ddd22ab004"}',	NULL,	'{"message": "Поправить описание задачи.", "user_id": "4810a9b8-dc03-4fbb-b561-3510ae17bcad"}',	'[{"role": "Контролер", "user_id": "7a80e265-f7c8-4608-9247-21dee0e6a33d"}, {"role": "Исполнитель", "user_id": "839d0f09-c8a2-466d-9ad3-843768aa2d1f"}]',	'Произвести испытиние изделия № 14, о результатах доложить устно.'),
+('0e2aa7b1-a463-42f2-aba1-99911b3bddaa',	'Согласование закупок',	'',	'high',	'todo',	'{Задача,Пользователь}',	'2020-11-22 14:37:33.657803',	'2020-11-27 14:37:33.657803',	15,	'{"user_id": "4810a9b8-dc03-4fbb-b561-3510ae17bcad"}',	'8099784a-d104-43eb-accf-75ba1cf35a50',	'{"message": "Рассмотреть на общем совещании.", "user_id": "4810a9b8-dc03-4fbb-b561-3510ae17bcad"}',	'[{"role": "Контролер", "user_id": "4810a9b8-dc03-4fbb-b561-3510ae17bcad"}, {"role": "Исполнитель", "user_id": "839d0f09-c8a2-466d-9ad3-843768aa2d1f"}, {"role": "Исполнитель", "user_id": "054cc9ce-cca0-4080-97ee-19fd5eb61b76"}, {"role": "Исполнитель", "user_id": "054cc9ce-cca0-4080-97ee-19fd5eb61b76"}]',	'Согласование закупок товаров и услуг за 2 квартал 2021 года'),
+('153ec68d-6436-4920-90f4-7e6ee585b22c',	'Определение поставщика',	'',	'normal',	'done',	'{Задача,Пользователь}',	'2020-11-22 14:37:33.66882',	'2020-11-27 14:37:33.66882',	100,	'{"user_id": "a4aef46a-0db8-4c23-aa77-ff713397bfde"}',	NULL,	'{"message": "Согласовано.", "user_id": "4810a9b8-dc03-4fbb-b561-3510ae17bcad"}',	'[{"role": "Контролер", "user_id": "6e61235a-1778-470e-85ca-a9524c977a79"}, {"role": "Исполнитель", "user_id": "839d0f09-c8a2-466d-9ad3-843768aa2d1f"}, {"role": "Исполнитель", "user_id": "054cc9ce-cca0-4080-97ee-19fd5eb61b76"}, {"role": "Исполнитель", "user_id": "054cc9ce-cca0-4080-97ee-19fd5eb61b76"}, {"role": "Исполнитель", "user_id": "054cc9ce-cca0-4080-97ee-19fd5eb61b76"}]',	'Выявить конкурентные приемущества поставщиков, Сделать презентацию.'),
+('09c19c7f-60cb-41b7-a77c-b06407b29a5b',	'Отгрузка товара на склад',	'',	'low',	'todo',	'{Задача,Пользователь}',	'2020-11-22 14:37:33.672065',	'2020-11-27 14:37:33.672065',	40,	'{"user_id": "23bf0a91-5150-4457-a9e6-65a6a2206e37"}',	'ffb2a3dc-ceec-4413-88a8-cd2dee71a930',	'{"message": "Согласовано.", "user_id": "4810a9b8-dc03-4fbb-b561-3510ae17bcad"}',	'[{"role": "Контролер", "user_id": "532e2562-ae72-4440-8f1d-0472981f592d"}, {"role": "Исполнитель", "user_id": "839d0f09-c8a2-466d-9ad3-843768aa2d1f"}, {"role": "Исполнитель", "user_id": "054cc9ce-cca0-4080-97ee-19fd5eb61b76"}]',	'Проконтролировать отгрузку товара.');
+
+DROP TABLE IF EXISTS "task_assign_set";
+CREATE TABLE "public"."task_assign_set" (
+    "assign_id" uuid DEFAULT uuid_generate_v4() NOT NULL,
+    "user_id" uuid,
+    "task_id" uuid,
+    "rol" character varying(20) DEFAULT 'Ответственный'
+) WITH (oids = false);
+
+INSERT INTO "task_assign_set" ("assign_id", "user_id", "task_id", "rol") VALUES
+('77c3dc71-a275-45c6-b0b6-74431b14733f',	'6e61235a-1778-470e-85ca-a9524c977a79',	'0e2aa7b1-a463-42f2-aba1-99911b3bddaa',	'Ответственный'),
+('63aa572d-ab78-450f-9b0b-a6eaaf535e37',	'839d0f09-c8a2-466d-9ad3-843768aa2d1f',	'153ec68d-6436-4920-90f4-7e6ee585b22c',	'Ответственный'),
+('350a3446-f6a9-4444-939c-617c640760e4',	'33371eee-b20b-47e0-b4cb-a48727719065',	'1ae6ec7f-ecaf-4e34-afb4-eece95c05291',	'Ответственный'),
+('ebcb31e2-0c53-4188-b67b-06c1fffba5cb',	'532e2562-ae72-4440-8f1d-0472981f592d',	'09c19c7f-60cb-41b7-a77c-b06407b29a5b',	'Ответственный');
+
+DROP TABLE IF EXISTS "user_message";
+CREATE TABLE "public"."user_message" (
+    "message_id" uuid DEFAULT uuid_generate_v4() NOT NULL,
+    "from_user_id" uuid NOT NULL,
+    "to_user_id" uuid NOT NULL,
+    "message" character varying(1000),
+    "audio_id" character varying(50),
+    "audio_txt" character varying(1000),
+    "post_time" timestamp DEFAULT timezone('UTC'))
+) WITH (oids = false);
+
+INSERT INTO "user_message" ("message_id", "from_user_id", "to_user_id", "message", "audio_id", "audio_txt", "post_time") VALUES
+('8b472355-c04f-475e-aed8-ea96ec40f018',	'f27221a5-3311-4593-bf6c-c1ddd22ab004',	'4810a9b8-dc03-4fbb-b561-3510ae17bcad',	'Привет Как дела?',	NULL,	NULL,	'2020-11-26 18:44:15.935369'),
+('f25d0091-ef5f-495d-948d-d48d1665d009',	'f27221a5-3311-4593-bf6c-c1ddd22ab004',	'4810a9b8-dc03-4fbb-b561-3510ae17bcad',	'Привет Как дела?',	NULL,	NULL,	'2020-11-26 18:44:15.941245'),
+('3bcd26fb-3c48-4a47-8d54-cc5a2c6a5964',	'f27221a5-3311-4593-bf6c-c1ddd22ab004',	'4810a9b8-dc03-4fbb-b561-3510ae17bcad',	'Привет Как дела?',	NULL,	NULL,	'2020-11-26 18:44:15.943774'),
+('794023f4-73f5-4f2e-86e7-2d21f58c1493',	'f27221a5-3311-4593-bf6c-c1ddd22ab004',	'4810a9b8-dc03-4fbb-b561-3510ae17bcad',	'Привет Как дела?',	NULL,	NULL,	'2020-11-26 18:44:15.946057'),
+('bd13fb9f-0646-423b-9bf3-06b6591d7d79',	'6e61235a-1778-470e-85ca-a9524c977a79',	'4810a9b8-dc03-4fbb-b561-3510ae17bcad',	'Привет Как дела?',	NULL,	NULL,	'2020-11-26 18:44:15.948204'),
+('20a7a545-9f29-47c6-a72f-cf561250ae3a',	'6e61235a-1778-470e-85ca-a9524c977a79',	'4810a9b8-dc03-4fbb-b561-3510ae17bcad',	'Привет Как дела?',	NULL,	NULL,	'2020-11-26 18:44:15.950407'),
+('2181b7bd-e3cc-4c37-8b79-43103eb01a3b',	'6e61235a-1778-470e-85ca-a9524c977a79',	'839d0f09-c8a2-466d-9ad3-843768aa2d1f',	'Привет Как дела?',	NULL,	NULL,	'2020-11-26 18:44:15.952574'),
+('bd5d2547-dcbd-4b71-89a6-caec6f8a8044',	'6e61235a-1778-470e-85ca-a9524c977a79',	'839d0f09-c8a2-466d-9ad3-843768aa2d1f',	'Привет Как дела?',	NULL,	NULL,	'2020-11-26 18:44:15.954999');
+
+DROP TABLE IF EXISTS "users";
+CREATE TABLE "public"."users" (
+    "user_id" uuid DEFAULT uuid_generate_v4() NOT NULL,
+    "fio" character varying(50) NOT NULL,
+    "nickname" character varying(50),
+    "status" character varying(50) DEFAULT 'offline',
+    "user_position" character varying(50) DEFAULT 'Инженер',
+    "avatar_url" character varying(512) DEFAULT 'https://i.pravatar.cc/300',
+    "user_password" character varying(50) DEFAULT '12345',
+    CONSTRAINT "users_pkey" PRIMARY KEY ("user_id")
+) WITH (oids = false);
+
+INSERT INTO "users" ("user_id", "fio", "nickname", "status", "user_position", "avatar_url", "user_password") VALUES
+('f27221a5-3311-4593-bf6c-c1ddd22ab004',	'Иван Федорович Панкратов',	'test1',	'online',	'Инженер',	'http://voiceapiserver.na4u.ru/static/userAvatar/1.png',	'12345'),
+('4810a9b8-dc03-4fbb-b561-3510ae17bcad',	'Федор Сергеевич Аверин',	'test2',	'online',	'Нач.отдела',	'http://voiceapiserver.na4u.ru/static/userAvatar/3.png',	'12345'),
+('6e61235a-1778-470e-85ca-a9524c977a79',	'Ольга Владимировка Клюканова',	'test3',	'online',	'Нач.сектора',	'http://voiceapiserver.na4u.ru/static/userAvatar/4.png',	'12345'),
+('839d0f09-c8a2-466d-9ad3-843768aa2d1f',	'Семен Павлович Иванов',	'test4',	'online',	'Нач.сектора',	'http://voiceapiserver.na4u.ru/static/userAvatar/5.png',	'12345'),
+('532e2562-ae72-4440-8f1d-0472981f592d',	'Светлана Владимировна Корнева',	'test7',	'offline',	'Инженер',	'http://voiceapiserver.na4u.ru/static/userAvatar/2.png',	'12345'),
+('054cc9ce-cca0-4080-97ee-19fd5eb61b76',	'Анастасия Сергеевна Ивкова',	'test5',	'offline',	'Инженер',	'http://voiceapiserver.na4u.ru/static/userAvatar/6.png',	'12345'),
+('7a80e265-f7c8-4608-9247-21dee0e6a33d',	'Роман Сергеевич Королёв',	'test6',	'online',	'Нач.сектора',	'http://voiceapiserver.na4u.ru/static/userAvatar/7.png',	'12345');
+
+ 
