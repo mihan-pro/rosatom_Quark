@@ -1,0 +1,1623 @@
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 100;
+  src: url("../fonts/Roboto-Thin.ttf");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/Roboto-Medium.ttf");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/Roboto-Bold.ttf");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/Roboto-Black.ttf");
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto";
+}
+
+.d-none {
+  display: none !important;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-template-rows: 1fr;
+}
+
+.mainMenu {
+  width: 100%;
+  height: 100%;
+  background: #006caf;
+}
+
+.mainMenu-items {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 70px);
+  margin-top: 45px;
+  align-items: center;
+  justify-items: center;
+}
+
+.mainMenu-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background: #1981cd;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.mainMenu-items .active {
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.mainMenu-items .active img {
+  filter: invert();
+}
+
+.mainMenu-item:hover {
+  background: #fff;
+}
+
+.mainMenu-item:hover img {
+  filter: invert();
+}
+
+.contentWrapper {
+  width: 100%;
+  height: 100%;
+  padding-left: 36px;
+  padding-top: 45px;
+}
+
+.content {
+  width: 1400px;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 128px 1px 1fr;
+}
+
+.header {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-title {
+  font-size: 36px;
+  font-weight: 600;
+  color: #2a4365;
+}
+
+.header-nav {
+  margin-top: 28px;
+  height: 42px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-tabMenu {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.header-tabMenuContacts {
+  display: flex;
+  align-items: center;
+}
+
+.header-tabMenuContacts .header-tabMenuItem {
+  margin-right: 40px;
+}
+
+.header-tabMenuItem {
+  margin-right: 80px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #2a4365;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.header-tabMenuItem:hover {
+  color: #1981cd;
+}
+.header-tabMenuItem:last-child {
+  margin-right: 0;
+}
+
+.header-btns {
+  display: flex;
+  align-items: center;
+}
+
+/* filter button */
+
+.filter-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px;
+  margin-right: 80px;
+}
+
+.filter-btn-icon {
+  width: 22px;
+  height: 22px;
+  margin-right: 12px;
+}
+
+.filter-btn-text {
+  color: #2a4365;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/*  */
+
+/* add button */
+
+.add-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 171px;
+  height: 42px;
+  left: 1159px;
+  top: 115px;
+  background: #1981cd;
+  border-radius: 55px;
+  margin-left: 13px;
+}
+
+.add-btn-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.add-btn-text {
+  font-weight: 500;
+  font-size: 16px;
+  color: #fffcfe;
+}
+
+/*  */
+
+/* search-input */
+.input-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 293px;
+  height: 42px;
+  background: #edf2f7;
+  border-radius: 55px;
+  padding: 0 14px;
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 14px;
+}
+
+.Searchinput {
+  background: #edf2f7;
+  border: none;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.Searchinput::placeholder {
+  color: #718096;
+}
+
+/*  */
+
+.devider {
+  opacity: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #e2e8f0;
+}
+
+.mainSection {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+/* ************************ task  -  page ****************************/
+
+.taskPage {
+  width: 100%;
+  height: 100%;
+  background: #f1f6fa;
+  padding: 6px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(auto-fill, 80px);
+  grid-row-gap: 5px;
+  display: none;
+}
+
+.taskPage-item {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+}
+
+.taskPage-itemName {
+  font-size: 16px;
+  color: #404c5c;
+  margin-left: 19px;
+  width: 210px;
+  flex: auto;
+  pointer-events: none;
+}
+
+.taskPage-itemDate {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  pointer-events: none;
+}
+
+.taskPage-itemDate img {
+  margin-right: 10px;
+}
+
+.taskPage-itemDateText {
+  font-size: 15px;
+  color: #404c5c;
+  margin-right: 25px;
+}
+
+.taskPage-itemDevider {
+  width: 2px;
+  height: 32px;
+  background: #e2e8f0;
+}
+
+.taskPage-itemWorkingStatus {
+  width: 144px;
+  height: 32px;
+  background: #6cbae6;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-right: 38px;
+  margin-left: 45px;
+  margin-right: 50px;
+}
+
+.taskPage-itemWorkingStatus-fillPart {
+  height: 100%;
+  width: 29%;
+  background: #2d9cdb;
+}
+
+.taskPage-itemStatusText {
+  font-weight: 500;
+  font-size: 15px;
+  color: #ffffff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.taskPage-itemWorkingStatus-updateBtn {
+  position: absolute;
+  right: 0;
+  width: 50px;
+  height: 100%;
+  background: #6dacde;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.taskPage-itemParticipants {
+  height: 100%;
+  width: 136px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.taskPage-addPersonBtn {
+  width: 50px;
+  height: 32px;
+  background: #6dacde;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  display: none;
+}
+
+.taskPage-itemExistParticipants {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.taskPage-itemExistParticipants img {
+  margin-right: 9px;
+}
+
+.taskPage-itemExistParticipants span {
+  font-size: 15px;
+  color: #404c5c;
+}
+
+.taskPage-itemAttacmentsBtns {
+  width: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.taskPage-itemAttachmentFiles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 16px;
+  cursor: pointer;
+}
+
+.taskPage-itemAttachmentFiles img {
+  margin-right: 9px;
+}
+
+.taskPage-itemAttachmentFilesText {
+  font-size: 14px;
+  color: #404c5c;
+}
+
+.taskPage-itemChatButton {
+  margin: 0 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 32px;
+  background: #6dacde;
+  border-radius: 50px;
+}
+
+.taskPage-itemMoreBtn {
+  margin: 0 22px;
+}
+
+[prioritet="low"] .taskPage-itemWorkingStatus {
+  background: rgba(113, 128, 150, 0.7);
+}
+
+[prioritet="low"] .taskPage-itemWorkingStatus-fillPart,
+[prioritet="low"] .taskPage-itemWorkingStatus-updateBtn {
+  display: none;
+}
+
+[prioritet="high"] .taskPage-itemWorkingStatus {
+  background: rgba(155, 81, 224, 0.7);
+}
+
+[prioritet="high"] .taskPage-itemWorkingStatus-fillPart {
+  background: #9b51e0;
+}
+
+[empty] .taskPage-addPersonBtn {
+  display: flex;
+}
+
+[empty] .taskPage-itemExistParticipants {
+  display: none;
+}
+
+/* ************************** chat ****************************** */
+[closeChat] {
+  display: none !important;
+}
+
+.chat {
+  position: absolute;
+  bottom: 0;
+  right: 14px;
+  width: 560px;
+  height: 640px;
+  border-radius: 12px 12px 0px 0px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 74px 1fr 76px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: black 0 0 20px -17px;
+  z-index: 1;
+}
+
+.chat-header {
+  height: 100%;
+  width: 100%;
+  background: #025ea1;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 50px 50px 1fr 100px;
+  align-items: center;
+  justify-items: center;
+}
+
+.chat-headerMenu {
+  cursor: pointer;
+  padding: 5px;
+}
+
+.chat-headerName {
+  justify-self: start;
+  padding-left: 17px;
+  font-weight: 500;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.chat-headerBtns {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 5px;
+  margin-right: 19px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.chat-headerBtns div {
+  cursor: pointer;
+  padding: 5px;
+}
+
+.chat-footer {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr;
+  background: #edf2f7;
+  grid-template-columns: 68px 68px 1fr 74px;
+  align-items: center;
+  justify-items: center;
+}
+
+.chat-microBtn {
+  background: #6dacde;
+  border-radius: 50px;
+  width: 50px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.chat-attachBtn {
+  background: #6dacde;
+  border-radius: 50px;
+  width: 50px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.chat-input {
+  width: 354px;
+  height: 42px;
+  background: #ffffff;
+  border: 1px solid #c7d6ea;
+  border-radius: 55px;
+  outline: none;
+  padding: 7px;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.chat-sendBtn {
+  width: 42px;
+  height: 42px;
+  background: #1981cd;
+  border-radius: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.chat-sendBtn img {
+  position: relative;
+  left: 2px;
+}
+
+.chat-content {
+  width: 100%;
+  justify-content: end;
+  flex-flow: column;
+  flex-direction: column;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  direction: ltr;
+  position: relative;
+  bottom: 0;
+}
+
+/* message */
+
+.message {
+  width: 100%;
+  height: max-content;
+  display: grid;
+  grid-template-columns: 125px 1fr;
+  padding-right: 20px;
+  margin-top: 12px;
+}
+
+.message-avatar {
+  display: flex;
+  justify-content: center;
+}
+
+.message-avatar img {
+  width: 40px;
+  height: 40px;
+  display: none;
+}
+
+.message-content {
+  width: 100%;
+  height: max-content;
+  background: #6dacde;
+  border-radius: 12px 12px 0px 12px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 12px 15px 12px;
+}
+
+.message-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 30px;
+}
+
+.message-name {
+  font-weight: 500;
+  font-size: 14px;
+  color: white;
+  margin-top: 10px;
+  visibility: hidden;
+}
+
+.message-time {
+  margin-top: 10px;
+  color: white;
+  font-weight: normal;
+  font-size: 13px;
+}
+
+.message-audio {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 45px 272px 1fr;
+  height: 36px;
+  align-items: center;
+  width: 100%;
+  display: none;
+}
+
+.message-audioPlayBtn {
+  width: 35px;
+  height: 35px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: start;
+  cursor: pointer;
+}
+
+.message-audioDiogramm {
+  display: flex;
+  align-items: center;
+  justify-self: start;
+}
+
+.cutAudioWrapper {
+  overflow: hidden;
+  width: 259px;
+  white-space: nowrap;
+}
+
+.message-audioTranslate {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+  padding: 5px 0 5px 5px;
+}
+
+.message-audioTranslateBlock {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 25px;
+  width: 400px;
+  height: max-content;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-sizing: border-box;
+  border-radius: 12px;
+  padding: 9px;
+  justify-items: center;
+  align-items: center;
+  margin-top: 18px;
+  display: none;
+}
+
+.message-audioTranslateText {
+  justify-items: start;
+  color: white;
+  font-weight: 400;
+  font-size: 15px;
+  padding-right: 40px;
+}
+
+.message-audioTranslateCloseBtn {
+  justify-self: flex-end;
+  align-self: start;
+  cursor: pointer;
+}
+
+.message-plainTextbBlock {
+  width: 100%;
+  height: max-content;
+  display: grid;
+  grid-template-columns: 1fr 25px;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-items: center;
+  margin-top: 8px;
+}
+
+.message-plainTextbBlockText {
+  color: white;
+  font-size: 15px;
+  padding-right: 20px;
+}
+
+/* сообщение от партнера */
+
+[partner] {
+  width: 100%;
+  height: max-content;
+  display: grid;
+  grid-template-columns: 65px 1fr;
+  padding-right: 85px;
+  margin-top: 12px;
+}
+
+[partner] .message-avatar img {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+[partner] .message-content {
+  background: #808ea2;
+  border-radius: 10px 10px 10px 0px;
+}
+
+[partner] .message-name {
+  visibility: visible;
+}
+
+[partner] .message-audio {
+  margin-top: 10px;
+}
+
+[partner] .message-plainTextbBlockSeenIco {
+  visibility: hidden;
+}
+
+/* сообщение с аудио */
+
+[audio] .message-audio {
+  display: grid;
+}
+
+[translate] .message-audioTranslateBlock {
+  display: grid;
+  justify-items: start;
+}
+
+[audio] .message-plainTextbBlockSeenIco {
+  visibility: hidden;
+  height: 0;
+}
+
+/* **************************end chat *************************** */
+
+/* ***********************contacts page *************************** */
+
+.contactsPage {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(auto-fill, 100px);
+  grid-row-gap: 10px;
+  padding-top: 34px;
+}
+
+.contactItem {
+  background: #f1f6fa;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 100px 1fr 250px 150px 200px 50px;
+  align-items: center;
+  justify-items: center;
+}
+
+.contactItem:hover {
+  background: #d4e7f6;
+}
+
+.contactItem-name {
+  justify-self: start;
+  font-weight: 500;
+  font-size: 16px;
+  color: #404c5c;
+}
+
+.contactItem-position {
+  justify-self: start;
+  font-size: 16px;
+  color: #404c5c;
+}
+
+.contactItem-callBtn {
+  background: #3ec06a;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 145px;
+  height: 42px;
+  cursor: pointer;
+}
+
+.contactItem-callBtn img {
+  padding-right: 10px;
+}
+
+.contactItem-callBtnText {
+  font-weight: 500;
+  font-size: 16px;
+  color: white;
+}
+
+.contactItem-communicationBtns {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 0px 5px 0 50px;
+  height: 100%;
+}
+
+/* ***********************end contacts page *************************** */
+
+/* *********************** phone call popup ***************************/
+
+.grayLandScape {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.callPopup {
+  width: 400px;
+  height: 520px;
+  background: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.callPopup-avatar {
+  margin-top: 70px;
+}
+
+.callPopup-name {
+  font-size: 20px;
+  color: #2a4365;
+  margin-top: 27px;
+}
+
+.callPopup-hangUpBtn {
+  width: 326px;
+  height: 64px;
+  background: #f95f5f;
+  border-radius: 88px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 44px;
+  cursor: pointer;
+}
+
+.callPopup-hangUpBtn img {
+  margin-right: 14px;
+}
+
+.callPopup-hangUpBtnText {
+  font-weight: 500;
+  font-size: 21px;
+  color: #ffffff;
+}
+
+.callPopup-trayMode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #1981cd;
+  box-sizing: border-box;
+  border-radius: 50px;
+  margin-top: 20px;
+  width: 284px;
+  height: 42px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #1981cd;
+  cursor: pointer;
+}
+
+/* finish call popup */
+.finishCallPopup {
+  width: 400px;
+  height: 520px;
+  background: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.finishCallPopup-avatar {
+  margin-top: 70px;
+}
+
+.finishCallPopup-status {
+  font-size: 20px;
+  color: #2a4365;
+  margin-top: 27px;
+}
+
+.finishCallPopup-addTaskBtn {
+  width: 326px;
+  height: 64px;
+  background: #1981cd;
+  border-radius: 88px;
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 25px;
+  color: #ffffff;
+  margin-top: 43px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.finishCallPopup-manageBtns {
+  width: 100%;
+  padding: 0 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 22px;
+}
+
+.finishCallPopup-closeBtn,
+.finishCallPopup-saveBtn {
+  width: 136px;
+  height: 42px;
+  border: 2px solid #1981cd;
+  border-radius: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  color: #1981cd;
+  cursor: pointer;
+}
+
+.callPopup-avatar,
+.finishCallPopup-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* **********************  end phone call popup ************************ */
+
+/* ------------------------- task ------------------------------- */
+.task {
+  height: 100%;
+  width: 700px;
+  background: white;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 70px 1fr 100px;
+}
+
+.task-header {
+  width: 100%;
+  height: 64px;
+  background: #025ea1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task-title {
+  margin-left: 40px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.task-moreOptions {
+  display: flex;
+  height: 100%;
+  width: 59px;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-headerDevider {
+  width: 2px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.task-headerMoreBtn {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* task-content */
+.task-content {
+  width: 100%;
+  overflow-y: auto;
+}
+
+.TASK_SB {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 16px;
+  color: #2a4365;
+}
+
+.TASK_CONTENT {
+  width: 100%;
+  min-height: 62px;
+  height: fit-content;
+  background: #f1f6fa;
+  position: relative;
+  font-size: 15px;
+  color: #2a4365;
+  padding-left: 41px;
+  display: flex;
+  align-items: center;
+}
+
+.task-blockTopic {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 13px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #2a4365;
+}
+.task-blockTopic img {
+  margin-right: 10px;
+}
+
+.task-rollBtn {
+  height: 100%;
+  padding: 0 43px 0 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-TimeBlockSubtitle {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.task-blockTopicText {
+  width: 220px;
+}
+
+.task-timeBlockStartDate {
+  width: 220px;
+}
+
+.task-priorityRadioBtn {
+  display: flex;
+  align-items: center;
+  margin-right: 80px;
+}
+
+.task-radio1,
+.task-radio3 {
+  width: 15px;
+  height: 15px;
+  background-image: url("./../img/emptyPriorityRadio.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.task-radio2 {
+  width: 25px;
+  height: 25px;
+  background-image: url("./../img/middlehighPriorityRadio.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.task-statusBlockContent {
+  display: flex;
+  align-items: center;
+}
+
+.task-progressBar {
+  position: relative;
+  width: 634px;
+  height: 32px;
+  background: rgba(45, 156, 219, 0.7);
+  border-radius: 50px;
+  overflow: hidden;
+  padding-right: 38px;
+}
+
+.task-progressBarFillPart {
+  width: 30%;
+  background: #2d9cdb;
+  height: 100%;
+}
+
+.task-progressBarText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-weight: 500;
+  font-size: 15px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.task-task-progressBarupdateBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  background: #6dacde;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.task-descriptionInput {
+  width: 98%;
+  max-width: 98%;
+  min-width: 98%;
+  min-height: 60px;
+  height: max-content;
+  overflow: auto;
+  outline: none;
+  border: none;
+  background: #f1f6fa;
+  font-size: 15px;
+  color: #404c5c;
+  padding: 20px 0;
+}
+
+.task-autorItem {
+  display: flex;
+  align-items: center;
+  min-height: 62px;
+}
+
+.task-autorItem img,
+.task-executerItem img {
+  height: 40px;
+  width: 40px;
+  margin-right: 12px;
+  border-radius: 50%;
+}
+
+.task-executerItem {
+  display: flex;
+  align-items: center;
+  min-height: 62px;
+}
+
+.task-executerItemName {
+  width: 265px;
+}
+
+.task-executerItemMoreBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  cursor: pointer;
+}
+
+.task-executerItemMoreBtn img {
+  width: auto;
+  height: auto;
+}
+
+.task-executerItemDelBtn,
+.task-audioFileItemDelBtn {
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 14px;
+  color: #808ea2;
+  line-height: 128.91%;
+  margin-left: 5px;
+}
+
+.task-executerItemAddOneBtn,
+.task-audioFileItemAddOneBtn,
+.task-audioFileItemAddOneBtn,
+.task-resolutionItemAddOneBtn {
+  width: 50px;
+  height: 32px;
+  background: #6dacde;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+}
+
+.task-executerItemAddOneBtn img {
+  width: 22px;
+  margin: 0;
+  height: 17px;
+  border-radius: 0;
+}
+
+.task-audioFileItem {
+  display: flex;
+  align-items: center;
+  min-height: 62px;
+}
+
+.task-audioFileItemPlayBtn {
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  background: #6dacde;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 9px;
+}
+
+.task-audioFileItemWrapper {
+  overflow: hidden;
+  width: 260px;
+  white-space: nowrap;
+  margin-right: 21px;
+}
+
+.task-audioFileItemTranslateBtn {
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-audioFileItemTranslateBtn {
+  margin-right: 21px;
+}
+
+.task-attachmentItem {
+  display: flex;
+  align-items: center;
+  min-height: 62px;
+}
+
+.task-resolutionItem {
+  display: flex;
+  align-items: center;
+  min-height: 62px;
+}
+
+/* task-footer */
+.task-footer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+}
+
+.task-footerMainBtns {
+  width: 284px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-cancelBtn {
+  width: 136px;
+  height: 42px;
+  border: 2px solid #1981cd;
+  box-sizing: border-box;
+  border-radius: 55px;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  color: #1981cd;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  align-items: center;
+}
+
+.task-saveButton {
+  width: 136px;
+  height: 42px;
+  background: #1981cd;
+  border-radius: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+[prioritet] .task-radio3,
+[prioritet] .task-radio1 {
+  width: 15px;
+  height: 15px;
+  background-image: url("./../img/emptyPriorityRadio.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+[prioritet].task-radio1 {
+  width: 25px;
+  height: 25px;
+  background-image: url("./../img/middlehighPriorityRadio.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+[prioritet="high"] .task-progressBar {
+  background: rgba(155, 81, 224, 0.7);
+}
+
+[prioritet="high"] .task-progressBarFillPart {
+  background: #9b51e0;
+}
+
+[prioritet="high"] .task-radio1,
+[prioritet="high"] .task-radio2 {
+  width: 15px;
+  height: 15px;
+  background-image: url("./../img/emptyPriorityRadio.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 10px;
+  cursor: pointer;
+}
+[prioritet="high"] .task-radio3 {
+  width: 25px;
+  height: 25px;
+  background-image: url("./../img/highPriorityRadio.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+[prioritet="low"] .task-progressBar {
+  background: rgba(113, 128, 150, 0.7);
+}
+
+[prioritet="low"] .task-progressBarFillPart {
+  background: rgba(113, 128, 150, 1);
+}
+
+[prioritet="low"] .task-radio3,
+[prioritet="low"] .task-radio2 {
+  width: 15px;
+  height: 15px;
+  background-image: url("./../img/emptyPriorityRadio.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 10px;
+  cursor: pointer;
+}
+[prioritet="low"] .task-radio1 {
+  width: 25px;
+  height: 25px;
+  background-image: url("./../img/lowhighPriorityRadio.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+[close] .task-rollBtn img {
+  transform: rotate(180deg);
+}
+
+[close] .TASK_CONTENT {
+  display: none;
+}
+
+/* ------------------------- end task ------------------------------- */
+
+/* bpmn page */
+
+.bpmn-page {
+  background: #f1f6fa;
+  border: 2px solid #0000000d;
+  position: absolute;
+  width: 1400px;
+  top: 18%;
+  visibility: hidden;
+  z-index: -1;
+}
+
+.bpmn-page #canvas {
+  width: 100%;
+  height: 81vh;
+}
+
+/* toplineButtons */
+
+.searchLogo img {
+  cursor: pointer;
+}
+
+.topLineBtns {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0%;
+  margin-left: 965px;
+  margin-top: 45px;
+}
+
+.voiceManagingBtn {
+  width: 262px;
+  height: 42px;
+  border: 2px solid #1981cd;
+  box-sizing: border-box;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+.voiceManagingBtn img {
+  margin-right: 10px;
+}
+
+.voiceManagingBtnText {
+  font-weight: 500;
+  font-size: 16px;
+  color: #1981cd;
+}
+
+/* !!!!!!!!!!!!!!!!!!! app state !!!!!!!!!!!!!!!!!!!!!! */
+[page="tasks"] .taskPage {
+  display: grid;
+}
+
+[page="tasks"] .header-tabMenuContacts,
+[page="bpmn"] .header-tabMenuContacts {
+  display: none;
+}
+
+[page="contacts"] .header-tabMenu {
+  display: none;
+}
+
+[page="contacts"] .add-btn {
+  display: none;
+}
+[page="contacts"] .add-btn {
+  display: none;
+}
+
+[page="contacts"] .filter-btn {
+  margin-right: 0;
+}
+
+[page="bpmn"] .taskPage,
+[page="bpmn"] .header-tabMenu {
+  display: none;
+}
+.header-tabBPMNContacts {
+  display: none;
+}
+[page="bpmn"] .header-tabBPMNContacts {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+[page="bpmn"] .contactsPage {
+  display: none;
+}
+
+[page="bpmn"] .bpmn-page {
+  visibility: visible;
+  z-index: 0;
+}
+
+[page="contacts"] .devider {
+  opacity: 1;
+}
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  */
+/* chat-button */
+.chatButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  background: rgba(25, 129, 205, 0.3);
+  border-radius: 88px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+  margin-right: 55px;
+  margin-bottom: 55px;
+}
+
+.chatButton-innerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background: #1981cd;
+  border-radius: 88px;
+  pointer-events: none;
+}
+
+/* task view icons */
+.taskViewButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 60px;
+  margin-left: 275px;
+}
+
+.taskViewButtons-board {
+  margin-top: 3px;
+}

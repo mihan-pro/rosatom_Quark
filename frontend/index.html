@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!--electron-packager C:\haca\app_desktop quark --platform=win32 --arch=x64-->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Messenger</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
+    <link rel="stylesheet" type="text/css" href="./css/bpmn_1.css">
+    <link rel="stylesheet" type="text/css" href="./css/audio_style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/bpmn_style.css">
+
+</head>
+
+<body>
+    <!--Авторизация-->
+    <div id="auth_curtain" class="curtain">
+        <form id="auth_form" class="auth_form">
+            <input id="login" placeholder="login" class="auth_form_input"></input>
+            <input type="password" placeholder="password" id="password" class="auth_form_input"></input>
+            <button id="auth_button" class="auth_button">ВОЙТИ</button>
+        </form>
+    </div>
+    <!--Аудио Модуль-->
+    <div class="d-none" id="audio_module">
+        <div id="get_users" class="button">Get users</div>
+        <video id="myVideo" width="400px" height="auto"></video>
+        <video id="remVideo" width="400px" height="auto"></video>
+        <div id="callinfo"></div>
+        <button id="call_button" call_button peer_id="f27221a5-3311-4593-bf6c-c1ddd22ab004">Call to 1</button>
+        <button id="call_button" call_button peer_id="4810a9b8-dc03-4fbb-b561-3510ae17bcad">Call to 2</button>
+        <button id="answer_button">Принять</button>
+        <button id="disconnect_button">Disconnect</button>
+        <div id="audio_with_txt" mode="with_text" class="audio_btn"></div>
+        <div id="meter" class="meter" style="width: 400px; height: 400px"></div>
+    </div>
+    <!--Основной Модуль-->
+    <div class="wrapper">
+        <div class="mainMenu">
+            <div class="mainMenu-items">
+                <div class="mainMenu-item active" id="tab_tasks">
+                    <img src="./img/tasks.svg"></svg>
+                </div>
+                <div class="mainMenu-item" id="tab_bpmn">
+                    <img src="./img/grid.svg">
+                </div>
+                <div class="mainMenu-item" id="tab_contacts">
+                    <img src="./img/cubes.svg">
+                </div>
+            </div>
+            <div class="mainMenu-accaunt">
+                <img src="">
+            </div>
+        </div>
+        <div class="contentWrapper" page="tasks" id="content_wrapper">
+            <div class="content">
+                <div class="header">
+                    <div class="header-title" id="header-title">Задачи</div>
+                    <div class="header-nav">
+                        <div class="header-tabMenu">
+                            <div class="header-tabMenuItem">Все</div>
+                            <div class="header-tabMenuItem">Созданные</div>
+                            <div class="header-tabMenuItem">В процессе</div>
+                            <div class="header-tabMenuItem">Выполненные</div>
+                            <div class="taskViewButtons">
+                                <div class="taskViewButtons-list">
+                                    <img src="./img/taskListBtnIco.png" alt="">
+                                </div>
+                                <div class="taskViewButtons-board">
+                                    <img src="./img/taskBoardIco.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-tabMenuContacts">
+                            <div class="header-tabMenuItem">Список сотрудников</div>
+                            <div class="header-tabMenuItem">/</div>
+                            <div class="header-tabMenuItem">Отделы</div>
+                            <div class="header-tabMenuItem">/</div>
+                            <div class="header-tabMenuItem">Отдел испытаний</div>
+                        </div>
+                        <div class="header-tabBPMNContacts">
+                            <div class="header-tabMenuItem">Приложение для департамента промышленности</div>
+                        </div>
+                        <div class="header-btns">
+                            <div class="filter-btn">
+                                <img class="filter-btn-icon" src="./img/filter-icon.png"></img>
+                                <div class="filter-btn-text">Фильтры</div>
+                            </div>
+                            <div class="add-btn">
+                                <img class="add-btn-icon" src="./img/add-icon.png"></img>
+                                <div class="add-btn-text">Добавить</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="devider"></div>
+                <div class="mainSection" id="main_section">
+                </div>
+                <div class="bpmn-page">
+                    <div id="canvas"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- chat modal frame -->
+    <div class="chat" id="chat_id" closeChat>
+        <div class="chat-header">
+            <div class="chat-headerMenu">
+                <img src="./img/more-horizontal.png">
+            </div>
+            <div class="chat-headerIco">
+                <img src="./img/chatIco.png">
+            </div>
+            <div class="chat-headerName">Абрамов Леонид Рафаилович</div>
+            <div class="chat-headerBtns">
+                <div class="chat-headerSearchBtn">
+                    <img src="./img/searchWhite.png">
+                </div>
+                <div class="chat-headerCloseBtn" id="close_chat">
+                    <img src="./img/chatClose.png">
+                </div>
+            </div>
+        </div>
+        <div class="chat-content" id="chat_content">
+
+        </div>
+        <div class="chat-footer">
+            <div class="chat-microBtn" mode="width_text" audio_with_txt>
+                <img src="./img/microBtn.png">
+            </div>
+            <div class="chat-attachBtn">
+                <img src="./img/attachmentWhite.png">
+            </div>
+            <input type="text" class="chat-input">
+            <div class="chat-sendBtn">
+                <img src="./img/sendBtn.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- end chat modal frame -->
+    <!-- calling popup -->
+    <div class="grayLandScape d-none" id="gray_land_scape"></div>
+    <!-- end calling popup -->
+    <!-- voice managing btn  -->
+    <div class="topLineBtns">
+        <div class="input-field">
+            <label for="Searchinput" class="searchLogo">
+                <img src="./img/search.png">
+            </label>
+            <input type="text" class="Searchinput" name="Searchinput" placeholder="Поиск">
+        </div>
+        <div class="voiceManagingBtn" id="audio_control" mode="audio_control">
+            <img src="./img/voiceButtonIco.png" alt="">
+            <div class="voiceManagingBtnText">Голосовое управление</div>
+        </div>
+    </div>
+    <!-- chat-open-button -->
+    <div class="chatButton" id="open_chat_btn">
+        <div class="chatButton-innerWrapper">
+            <img src="./img/chatButtonIco.png">
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/st_1.js"></script>
+    <script type="text/javascript" src="./js/jQuery.js"></script>
+    <script type="text/javascript" src="./js/utils.js"></script>
+    <script type="text/javascript" src="./js/store.js"></script>
+    <script type="text/javascript" src="./js/auth.js"></script>
+    <script type="text/javascript" src="./js/peer.min.js"></script>
+    <script type="text/javascript" src="./js/peer.js"></script>
+    <script type="text/javascript" src="./js/loader.js"></script>
+    <script type="text/javascript" src="./js/audio/dist.js"></script>
+    <script type="text/javascript" src="./js/audio/audio_manager.js"></script>
+    <script type="text/javascript" src="./js/tabs/contacts.js"></script>
+    <script type="text/javascript" src="./js/tabs/tasks.js"></script>
+    <script type="text/javascript" src="./js/bpmn/bpmn_lib.js"></script>
+    <script type="text/javascript" src="./js/bpmn/bpmn.js"></script>
+    <script type="text/javascript" src="./js/Cart.js"></script>
+    <script type="text/javascript" src="./js/chat.js"></script>
+    <script src="./js/tabs/bpmn.js"></script>
+
+    <script type="text/javascript" src="./js/main.js"></script>
+    <script type="text/javascript" src="./js/listeners.js"></script>
+</body>
+
+</html>
