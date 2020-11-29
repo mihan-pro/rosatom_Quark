@@ -68,7 +68,7 @@ let audio_manager = (function () {
                         <div class="message-audioPlayBtn" audio_id = '${
                           res[1]
                         }'>
-                            <img src="./img/PlayAudioIcoBlueForBtn.png">
+                            <img src="./img/play_bl.svg" width="14px" height="14px" >
                         </div>
                         <div class="message-audioDiogramm">
                             <div class="cutAudioWrapper">
