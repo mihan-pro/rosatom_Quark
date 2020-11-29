@@ -3,7 +3,7 @@
 
 Приложение написано с использованием веб-технологий что делает его достаточно гибким к платформе использования.
 
-> Демо веб-версия приложения: [приложение в виде HTML ](http://voiceapiserver.na4u.ru/static/demoApp/index.html)
+> Демо веб-версия приложения: [приложение в виде HTML ](http://voiceapiserver.na4u.ru/static/demoApp/index.html) **Авторизация отключена намеренно.**
 
 > Собранная версия для Windows: [ссылка на скачивание](https://dropmefiles.com/dS7tS)
 
@@ -26,8 +26,6 @@
 
 ## Backend Приложения КВАРК - Серверная часть приложения.
 > Демо [доступно по ссылке ](https://voiceapiserver.na4u.ru/) REST API
-
-> Демо [приложения в виде HTML ](http://voiceapiserver.na4u.ru/static/demoApp/index.html) **Авторизация отключена намеренно!**
 
 Приложение написано на node.js с использованием:
 
